@@ -1,6 +1,6 @@
-# Python中字典的集合
+# Python中的集合
 
-print('Python中字典的集合')
+print('Python中的集合')
 
 '''
     集合中不能保存重复的元素
