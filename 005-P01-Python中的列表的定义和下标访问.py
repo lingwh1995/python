@@ -12,11 +12,21 @@ list1 = []
 
 print(list1)
 print(type(list1))
+print('------------------------------')
 
 # 定义一个具有一个元素的列表,必须加逗号
 list2 = [1, ]
 # list2 = [1]
 print(list2)
+print('------------------------------')
 
 # 定义一个具有多个元素的列表,必须加逗号
 list3 = [1, 2, 3]
+print(list3)
+print('------------------------------')
+
+# 使用[]定义list和使用list()方法定义list
+list4 = ['h', 'e', 'l', 'l', 'o']
+list5 = list('hello')
+print(list4)
+print(list5)

@@ -29,3 +29,4 @@ print(fun_3(4, 5))
     使用pydoc.help(函数名查看函数具体描述)
 '''
 pydoc.help(print)
+
