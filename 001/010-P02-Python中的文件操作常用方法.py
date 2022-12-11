@@ -18,7 +18,7 @@ cwd = os.getcwd()
 print(cwd)
 
 # 获取当前目录下的文件列表
-file_list = os.listdir('.')
+file_list = os.listdir('..')
 print(file_list)
 for file in file_list:
     print(file)

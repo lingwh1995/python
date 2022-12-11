@@ -18,6 +18,7 @@ print('Python中的匿名函数lambda')
             为什么不能使用while、for-in?
                 lambda中有自己的遍历元素的方式,不能使用传统循环遍历元素
         5. lambda 在函数体中,可以使用if实现三目运算符
+    作用: 使用高阶函数时使用lambda进行传参    
 '''
 
 # 把lambda函数的引用赋给一个变量(不传递参数)

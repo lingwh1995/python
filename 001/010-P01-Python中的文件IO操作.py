@@ -14,7 +14,7 @@ print('Python中的文件IO操作')
 # 读取文件全部内容+按字节读取
 def read_1():
     # 打开一个文件
-    file = open('a.txt', 'r')
+    file = open('a.txt', 'rt')
     # 读取全部内容
     # content = file.read()
     # 读取一个字节
@@ -49,7 +49,7 @@ def read_2():
 
 # 按行读取
 def read_3():
-    file = open('a.txt', 'r')
+    file = open('a.txt', 'rt')
     # 每次读取一行
     # content = file.readline()
     # 每次读取多行
