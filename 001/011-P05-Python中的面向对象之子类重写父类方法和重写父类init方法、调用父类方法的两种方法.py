@@ -1,7 +1,7 @@
-# Python中的面向对象之子类重写父类方法和重写父类init方法
+# Python中的面向对象之子类重写父类方法和重写父类init方法、调用父类方法的两种方法
 
 
-print('Python中的面向对象之子类重写父类方法和重写父类init方法')
+print('Python中的面向对象之子类重写父类方法和重写父类init方法、调用父类方法的两种方法')
 
 
 class Cat:
@@ -45,8 +45,10 @@ class MachineCat(Cat):
         print('子类机器猫init()...')
 
     def play(self):
-        # 调用父类play()方法
-        Cat.play(self)
+        # 调用父类play()方法第一种方式
+        # Cat.play(self)
+        # 调用父类play()方法第二种方式
+        super().play()
         print('子类机器猫 play...')
 
 

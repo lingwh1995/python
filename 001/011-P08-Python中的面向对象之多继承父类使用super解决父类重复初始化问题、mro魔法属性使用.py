@@ -1,7 +1,7 @@
-# Python中的面向对象之多继承父类使用super解决父类重复初始化问题
+# Python中的面向对象之多继承父类使用super解决父类重复初始化问题、mro魔法属性使用
 
 
-print('Python中的面向对象之多继承父类使用super解决父类重复初始化问题')
+print('Python中的面向对象之多继承父类使用super解决父类重复初始化问题、mro魔法属性使用')
 
 
 ''''
@@ -128,6 +128,7 @@ print('------------------------------------')
     多继承V4: 使用super(当前类, self).__init__(构造参数)
         1.解决了父类Person被多次初始化的问题
         2.解决了实例化子类的父类时报错的问题
+        3.super(当前类,self)的简化写法super()
         
         多继承参数传递
 '''
@@ -142,7 +143,9 @@ class Person:
 class Father(Person):
     def __init__(self, hobby, *args):
         # 调用父类初始化方法
-        super(Father, self).__init__(*args)
+        # super(Father, self).__init__(*args)
+        # super()的简化写法
+        super().__init__(*args)
         print("father init ...")
         self.hobby = hobby
 
@@ -150,7 +153,9 @@ class Father(Person):
 class Mother(Person):
     def __init__(self, age, *args):
         # 调用父类初始化方法
-        super(Mother, self).__init__(*args)
+        # super(Mother, self).__init__(*args)
+        # super()的简化写法
+        super().__init__(*args)
         print("mother init ...")
         self.age = age
 
@@ -168,7 +173,9 @@ class Mother(Person):
 # 版本2: 最下层的子类使用正常传参,需要考虑顺序,最好使用这个,因为这样外部调用的时候知道应该传递什么参数
 class Son(Father, Mother):
     def __init__(self, gender, hobby, age, name):
-        super(Son, self).__init__(hobby, age, name)
+        # super(Son, self).__init__(hobby, age, name)
+        # super()的简化写法
+        super().__init__(hobby, age, name)
         print("son init ...")
         self.gender = gender
         # 查看解释器执行继承关系的顺序: __mro__  魔法属性
