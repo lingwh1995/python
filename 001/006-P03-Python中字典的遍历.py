@@ -37,7 +37,7 @@ print(d.items())
 for item in d.items():
     print(f'{item[0]} -> {item[1]}')
 
-for k,v in d.items():
+for k, v in d.items():
     print(f'{k} -> {v}')
 
 # 解包
