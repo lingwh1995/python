@@ -1,8 +1,8 @@
-# Python中的函数
+"""
+    pydoc
+"""
 
 import pydoc
-
-print('Python中的函数!')
 
 
 # 最简单的函数,没有返回值的函数返回值为None
@@ -25,8 +25,7 @@ print(fun_1())
 fun_2('zhangsan')
 print(fun_3(4, 5))
 
-'''
+"""
     使用pydoc.help(函数名查看函数具体描述)
-'''
+"""
 pydoc.help(print)
-

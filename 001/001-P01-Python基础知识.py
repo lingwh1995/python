@@ -1,4 +1,6 @@
-# Python基础知识
+"""
+    Python基础知识
+"""
 
 # 1.单行注释: #+空格+注释
 # Python Hello World示例程序！
@@ -20,7 +22,7 @@ print('Hello Python!演示多行注释第二种!(格式: 一对三个单引号)'
 """
 print('Hello Python!演示多行注释第三种!(格式: 一对三个多引号)')
 
-'''
+"""
     3.Python2和Python3区别
         Python2默认不支持中文,Python3默认支持中文
-'''
+"""

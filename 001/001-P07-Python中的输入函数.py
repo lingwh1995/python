@@ -1,5 +1,6 @@
-# Python中的输入函数
-print('Python中的输入函数!')
+"""
+    Python中的输入函数
+"""
 
 # 不带有提示的input()函数
 a = input()

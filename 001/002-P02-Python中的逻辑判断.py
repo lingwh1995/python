@@ -1,6 +1,6 @@
-# Python中的逻辑判断
-
-print('Python中的逻辑判断!')
+"""
+    Python中的逻辑判断
+"""
 
 
 def is_adult(age):
