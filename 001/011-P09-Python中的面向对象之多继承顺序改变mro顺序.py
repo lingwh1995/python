@@ -1,7 +1,6 @@
-# Python中的面向对象之多继承顺序改变mro顺序
-
-
-print('Python中的面向对象之多继承顺序改变mro顺序')
+"""
+    Python中的面向对象之多继承顺序改变mro顺序
+"""
 
 
 class Person:

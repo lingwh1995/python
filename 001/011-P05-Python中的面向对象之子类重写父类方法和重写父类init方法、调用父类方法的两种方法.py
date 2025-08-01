@@ -1,7 +1,6 @@
-# Python中的面向对象之子类重写父类方法和重写父类init方法、调用父类方法的两种方法
-
-
-print('Python中的面向对象之子类重写父类方法和重写父类init方法、调用父类方法的两种方法')
+"""
+    Python中的面向对象之子类重写父类方法和重写父类init方法、调用父类方法的两种方法
+"""
 
 
 class Cat:
@@ -13,11 +12,11 @@ class Cat:
         print('父类 play...')
 
 
-'''
+"""
     1.重写父类init()方法
     2.子类重写了父类的init()方法,但是未调用父类init()方法
     3.重写父类非init()方法
-'''
+"""
 
 
 class BlueCat(Cat):
@@ -29,11 +28,11 @@ class BlueCat(Cat):
         print('子类蓝猫 play...')
 
 
-'''
+"""
     1.重写父类init()方法
     2.子类重写了父类的init(),并且调用了父类init()方法
     3.重写父类非init()方法,并且重写前调用父类该方法
-'''
+"""
 
 
 class MachineCat(Cat):

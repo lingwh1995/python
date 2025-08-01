@@ -1,8 +1,12 @@
-# python工具类
+"""
+    Python工具类
+"""
+
 
 # 两数相加
 def add(a, b):
     return a + b
+
 
 class Tool:
     @staticmethod

@@ -1,6 +1,6 @@
-# Python中字典的遍历
-
-print('Python中字典的遍历')
+"""
+    Python中字典的遍历
+"""
 
 # 定义一个空的字典
 ed = {}
@@ -25,7 +25,7 @@ for k in d.keys():
 
 print('------------------')
 
-# 方式三:使用values()方法遍历,但是只能获取到字典中所有的值,不能获取到键
+# 方式三:使用values()方法遍历，但是只能获取到字典中所有的值，不能获取到键
 print(d.values())
 for v in d.values():
     print(f'{v}')

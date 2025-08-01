@@ -1,6 +1,6 @@
-# Python实现学生管理系统
-
-print('Python实现学生管理系统')
+"""
+    Python实现学生管理系统
+"""
 
 
 def main():
@@ -42,7 +42,7 @@ def insert():
     stu_info = {}
     stu_no = input('请输入学生编号:')
     stu_info['stu_no'] = stu_no
-    if select(stu_no) != None:
+    if select(stu_no) is not None:
         print('已经有该学生信息,请勿重复录入！')
         return
     stu_info['stu_name'] = input('请输入学生姓名:')

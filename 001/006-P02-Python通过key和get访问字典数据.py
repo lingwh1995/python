@@ -1,11 +1,11 @@
-# Python通过key和get访问字典数据
+"""
+    Python通过key和get访问字典数据
+"""
 
-print('Python通过key和get访问字典数据')
-
-'''
+"""
     1.使用 []+ key 访问字典
     2.使用get()访问字典
-'''
+"""
 
 # 定义一个标准的字典
 d1 = {'one': '周一', 'two': '周二', 'three': '周三'}

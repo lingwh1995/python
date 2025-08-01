@@ -1,6 +1,6 @@
-# Python中的换行和forin
-
-print('Python中的换行和range')
+"""
+    Python中的换行和for-in-else、while-else
+"""
 
 
 # python换行,使用end进行换行

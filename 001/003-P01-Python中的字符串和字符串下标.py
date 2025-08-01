@@ -1,6 +1,6 @@
-# Python中的字符串和下标
-
-print('Python中的字符串和下标')
+"""
+    Python中的字符串和下标
+"""
 
 # 定义字符串的几种方式
 a = '12345'
@@ -51,7 +51,6 @@ def loop_print_str_3():
 loop_print_str_1()
 loop_print_str_2()
 loop_print_str_3()
-
 
 # len()函数
 print('字符串s的长度: %d' % len(s))

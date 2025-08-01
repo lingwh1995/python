@@ -1,11 +1,12 @@
-# Python中的面向对象之__dict__
+"""
+    Python中的面向对象之__dict__
+"""
 
-
-print('Python中的面向对象之__dict__')
-
-'''
+"""
     实例方法、实例属性、类属性
-'''
+"""
+
+
 class Cat:
     # 定义一个类属性
     name = '猫咪'
@@ -26,11 +27,9 @@ tom.show()
 # 调用过程: 从Cat.__dict__中获取类中保存的信息 -> 找到方法名 -> 传递一个实例参数进行方法调用
 Cat.show(tom)
 
-
 # 调用类属性
 print(Cat.name)
 print('------------------------------------------')
-
 
 '''
     类方法和静态方法用途和区别?
@@ -44,13 +43,13 @@ print('------------------------------------------')
 
 class MyMath:
     num = 1000
-    
+
     @classmethod
     def get(cls):
         print(cls.num)
 
     @classmethod
-    def add(cls, a,b):
+    def add(cls, a, b):
         return a + b
 
     @staticmethod

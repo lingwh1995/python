@@ -1,6 +1,6 @@
-# Python中的排序函数sort配合lambda
-
-print('Python中的排序函数sort配合lambda')
+"""
+    Python中的排序函数sort配合lambda
+"""
 
 # 对列表进行排序
 l1 = [2, 4, 3, 5, 7, 1, 8, 6, 9, 10]

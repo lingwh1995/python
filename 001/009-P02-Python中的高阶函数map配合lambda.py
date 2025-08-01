@@ -1,16 +1,18 @@
-# Python中的高阶函数map配合lambda
+"""
+    Python中的高阶函数map配合lambda
+"""
 
-print('Python中的高阶函数map配合lambda')
-
-
-'''
+"""
     map函数作用: 对参数列表中的元素做一个映射
-'''
+"""
 
 l = [1, 2, 3, 4]
 print(f'初始的list: {l}')
+
+
 def double(i):
     return i * 2
+
 
 # 使用map函数对list中每一个元素进行映射
 m_o = map(double, l)
@@ -32,6 +34,7 @@ l_m_l = list(l_m_o)
 print(f'map()和lambda配合使用: {l_m_l}')
 print('------------------------------')
 
+
 # map()实现原理: 自己定义一个map()函数
 def my_map(fun, source):
     # 定义一个新的列表,用于保存计算后的结果
@@ -39,6 +42,8 @@ def my_map(fun, source):
     for s in source:
         result.append(fun(s))
     return result
+
+
 # 测试自己定义的map()
 m_m_l = list(my_map(double, l))
 print(m_m_l)

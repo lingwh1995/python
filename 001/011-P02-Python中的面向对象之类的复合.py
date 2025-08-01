@@ -1,7 +1,6 @@
-# Python中的面向对象之类的复合
-
-
-print('Python中的面向对象之类的复合')
+"""
+    Python中的面向对象之类的复合
+"""
 
 
 class Dog:

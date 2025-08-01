@@ -1,10 +1,10 @@
-# Python中容器之间的类型转换
+"""
+    Python中容器之间的类型转换
+"""
 
-print('Python中容器之间的类型转换')
-
-'''
+"""
     set-list-tuple之间的转换
-'''
+"""
 
 s = 'hello'
 print(s)

@@ -1,13 +1,14 @@
-# Python中的字符串常用方法
+"""
+    Python中的字符串常用方法
+"""
 
-print('Python中的字符串常用方法')
-'''
+"""
     find()和index()方法的区别:
-        find()方法找不到返回-1,index()方法找不到会报异常
+        find()方法找不到返回-1，index()方法找不到会报异常
     find()、index和rfind()、rindex()方法区别:
-        1.find()、index:从左向右找, rfind()、rindex(): 从右向左找      
+        1.find()、index:从左向右找，rfind()、rindex(): 从右向左找      
         2.find()和rfind()、index()和rindex()方法返回的结果是一样的,只不过是开始查找方向不同
-'''
+"""
 
 # 定义字符串的几种方式
 s1 = 'pythonpython'
@@ -180,7 +181,7 @@ def test_ljust_1(width):
     print('|' + ljust_s6 + '|')
 
 
-# 字符串居左对齐,并且使用字符填充空白处
+# 字符串居左对齐，并且使用字符填充空白处
 def test_ljust_2(width, fill):
     ljust_s6 = s6.ljust(width, fill)
     print('|' + ljust_s6 + '|')
@@ -192,13 +193,13 @@ def test_rjust_1(width):
     print('|' + rjust_s6 + '|')
 
 
-# 字符串居右对齐,并且使用字符填充空白处
+# 字符串居右对齐，并且使用字符填充空白处
 def test_rjust_2(width, fill):
     rjust_s6 = s6.rjust(width, fill)
     print('|' + rjust_s6 + '|')
 
 
-# 字符串居右对齐,并且使用字符填充空白处
+# 字符串居右对齐，并且使用字符填充空白处
 def test_rjust_2(width, fill):
     rjust_s6 = s6.rjust(width, fill)
     print('|' + rjust_s6 + '|')
@@ -222,9 +223,9 @@ def test_rstrip():
     print('|' + rstrip_s7 + '|')
 
 
-'''
+"""
     find()方法
-'''
+"""
 # 查询单个字符的索引位置
 test_find_1('h')
 # 查询子串的索引位置
@@ -237,45 +238,45 @@ test_find_1('n')
 test_find_2('o', 1, 3)
 test_find_2('o', 1, 5)
 
-'''
+"""
     index()方法
-'''
+"""
 test_index_1('h')
 # test_index_2('o', 1, 3)
 test_index_2('o', 1, 5)
 
 
-'''
+"""
     rfind()方法
-'''
+"""
 test_rfind_1('h')
 test_rfind_2('h', 1, 5)
 
 
-'''
+"""
     rindex()方法
-'''
+"""
 test_rindex_1('h')
 test_index_2('o', 1, 5)
 
 
-'''
+"""
     replace()方法
-'''
+"""
 test_replace_1('h', 'H')
 test_replace_1('python', 'PYTHON')
 test_replace_2('python', 'PYTHON', 1)
 
-'''
+"""
     count()方法
-'''
+"""
 test_count_1('p')
 test_count_2('p', 0, 6)
 
 
-'''
+"""
     split()方法
-'''
+"""
 test_split_1(s2, ',')
 test_split_2(',', 1)
 # 分割符使用后会被删除,所以打印的结果中没有th
@@ -289,79 +290,79 @@ test_split_1(s3, '\n')
 test_splitlines()
 
 
-'''
+"""
     partition()方法
-'''
+"""
 test_partition(s1, 'th')
 test_partition(s4, '.')
 
 
-'''
+"""
     join()方法
-'''
+"""
 test_join(s1, '-')
 test_join(list1, '-')
 
 
-'''
+"""
     startswith()方法
-'''
+"""
 test_startswith('p')
 test_startswith('py')
 
 
-'''
+"""
     endswith()方法
-'''
+"""
 test_endswith('n')
 test_endswith('on')
 
 
-'''
+"""
     upper()方法
-'''
+"""
 test_upper()
 
-'''
+"""
     lower()方法
-'''
+"""
 test_lower()
 
 
-'''
+"""
     title()方法
-'''
+"""
 test_title()
 
 
-'''
+"""
     capitalize()方法
-'''
+"""
 test_capitalize()
 
-'''
+"""
     center()方法
-'''
+"""
 test_center_1(20)
 test_center_2(20, '*')
 
-'''
+"""
     ljust()方法
-'''
+"""
 test_ljust_1(20)
 test_ljust_2(20, '*')
 
-'''
+"""
     rjust()方法
-'''
+"""
 test_rjust_1(20)
 test_rjust_2(20, '*')
 
-'''
+"""
     strip()方法
     lstrip()方法
     rstrip()方法
-'''
+"""
 test_strip()
 test_lstrip()
 test_rstrip()

@@ -1,7 +1,7 @@
-# Python中的异常处理try-except
+"""
+    Python中的异常处理try-except
+"""
 
-
-print('Python中的异常处理try-except')
 
 s = 'hello'
 

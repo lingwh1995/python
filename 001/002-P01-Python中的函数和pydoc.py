@@ -5,7 +5,7 @@
 import pydoc
 
 
-# 最简单的函数,没有返回值的函数返回值为None
+# 最简单的函数，没有返回值的函数返回值为None
 def fun_1():
     print("Hello first python function!")
 
@@ -15,7 +15,7 @@ def fun_2(name):
     print("接收到name的值: " + name)
 
 
-# 有返回值的函数,返回值为c
+# 有返回值的函数，返回值为c
 def fun_3(a, b):
     c = a + b
     return c

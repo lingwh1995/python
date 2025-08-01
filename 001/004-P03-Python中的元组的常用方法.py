@@ -1,6 +1,6 @@
-# Python中的元组(tuple)的常用方法
-
-print('Python中的元组(tuple)的常用方法')
+"""
+    Python中的元组(tuple)的常用方法
+"""
 
 t1 = ('a', 'b', 'c', 'a')
 
