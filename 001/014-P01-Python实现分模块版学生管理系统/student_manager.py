@@ -9,7 +9,6 @@ class StudentManagerSystem:
     def __init__(self):
         self.students = {}
 
-
     # 启动学生管理系统
     def start(self):
         print('系统启动...')
@@ -23,7 +22,6 @@ class StudentManagerSystem:
             else:
                 self.__operate(operate_id)
 
-
     # 打印菜单
     def __print_menu(self):
         print('*' * 30)
@@ -36,18 +34,17 @@ class StudentManagerSystem:
         print('0.退出系统')
         print('*' * 30)
 
-
     # 选择操作
     def __operate(self, operate_id):
         print('选择了功能:', operate_id)
         # 将功能id和方法对应,封装在字典中,模拟switch-case功能
         method_dict = {
-            '1':self.__add,
-            '2':self.__remove,
-            '3':self.__update,
-            '4':self.__get,
-            '5':self.__show,
-            '0':self.__exit
+            '1': self.__add,
+            '2': self.__remove,
+            '3': self.__update,
+            '4': self.__get,
+            '5': self.__show,
+            '0': self.__exit
         }
 
         # 通过接收id,去字典中查询相关方法,并执行
@@ -61,7 +58,6 @@ class StudentManagerSystem:
         else:
             method()
 
-
     # 添加学生
     def __add(self):
         stu_id = input('请输入学生编号:')
@@ -69,7 +65,6 @@ class StudentManagerSystem:
         stu_age = input('请输入学生年龄:')
         self.students[stu_id] = Student(stu_id, stu_name, stu_age)
         self.__show()
-
 
     # 删除学生
     def __remove(self, stu_id):
@@ -79,7 +74,6 @@ class StudentManagerSystem:
         else:
             self.students.pop(stu_id)
         self.__show()
-
 
     # 修改学生
     def __update(self, stu_id):
@@ -100,19 +94,16 @@ class StudentManagerSystem:
             print(student)
         return student
 
-
     # 显示学生
     def __show(self):
         for k, v in self.students.items():
             print(f'{k}: {v}')
-
 
     # 退出系统
     def __exit(self):
         print('退出系统')
         self.__save()
         exit(0)
-
 
     # 保存学生数据
     def __save(self):
@@ -124,7 +115,6 @@ class StudentManagerSystem:
             file_w.write(student_str)
         file_w.close()
 
-
     # 加载学生数据
     def __load(self):
         file_r = None
@@ -135,7 +125,8 @@ class StudentManagerSystem:
         else:
             students = file_r.readlines()
             for student in students:
-                self.students[student.split(',')[0]] = Student(student.split(',')[0], student.split(',')[1], student.split(',')[2])
+                self.students[student.split(',')[0]] = Student(student.split(',')[0], student.split(',')[1],
+                                                               student.split(',')[2])
         finally:
             if file_r is not None:
                 file_r.close()
