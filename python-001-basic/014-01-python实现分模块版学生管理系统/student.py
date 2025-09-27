@@ -16,5 +16,5 @@ class Student:
 
 # 防止测试代码在非测试情况下被执行
 if __name__ == '__main__':
-    student = Student('001', 'zhangsan', 18)
+    student = Student('python-001-basic', 'zhangsan', 18)
     print(student)
