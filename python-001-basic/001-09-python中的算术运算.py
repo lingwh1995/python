@@ -17,9 +17,9 @@ print("'a'+'a' = %s" % ('a' + 'a'))
 
 # 乘法
 print(2 * 3)
-print('2*3= %d' % (2*3))
+print('2 * 3 = %d' % (2 * 3))
 print('a' * 3)
-print("'a'*3= %s" % ('a' * 3))
+print("'a'* 3 = %s" % ('a' * 3))
 # 错误运算: NameError: name 'a' is not defined
 # print(a*3)
 

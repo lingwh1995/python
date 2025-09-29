@@ -20,5 +20,5 @@ print(keyword.kwlist)
         'return', 'try', 'while', 'with', 'yield'
     ]
     
-    在定义标识符时,不要使用 关键字 做为标识符名,会报错
+    在定义标识符时，不要使用 关键字 做为标识符名,会报错
 """
