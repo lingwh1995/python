@@ -7,7 +7,7 @@
 """
 
 
-print('name', __name__)
+print('name: %s' % __name__)
 
 if __name__ == '__main__':
     print('主动执行......')
