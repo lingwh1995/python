@@ -1,4 +1,5 @@
 import cv2
+import image_util as image_util
 
 """
     高斯模糊
@@ -31,19 +32,6 @@ import cv2
 """
 
 
-def show_image_in_window(title, image):
-    """
-        显示图像函数
-        param：
-            image：要显示的图像
-        return：
-            无
-    """
-    cv2.imshow(title, image)
-    cv2.waitKey(0)  # 等待按键
-    cv2.destroyAllWindows()  # 关闭所有窗口
-
-
 def opencv_gaussian_blur():
     """
         使用opencv进行高斯模糊
@@ -63,8 +51,8 @@ def opencv_gaussian_blur():
 
     # 加载图像
     image = cv2.imread(input_path)
-    # 设置高斯核的大小和标准差
-    kernel_size = 2
+    # 设置高斯核的大小，必须是正奇数
+    kernel_size = 3
     # 高斯分布的标准差，决定了模糊的程度。较大的 sigma 会产生更强的模糊效果
     sigma = 1.0
 
@@ -75,7 +63,7 @@ def opencv_gaussian_blur():
     cv2.imwrite(output_path, blurred_image)
 
     # 显示图像
-    show_image_in_window('高斯模糊后的图像......', blurred_image)
+    image_util.show_image_in_window('高斯模糊后的图像', blurred_image)
 
 
 if __name__ == "__main__":

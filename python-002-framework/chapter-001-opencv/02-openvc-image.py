@@ -1,4 +1,5 @@
 import cv2
+import image_util as image_util
 
 """
     图像处理
@@ -22,19 +23,6 @@ import cv2
             面部识别 ：在安全和监控领域用于身份验证。
             工业检测 ：在制造业中检测产品缺陷，确保质量控制。
 """
-
-
-def show_image_in_window(title, image):
-    """
-        显示图像函数
-        param：
-            image：要显示的图像
-        return：
-            无
-    """
-    cv2.imshow(title, image)
-    cv2.waitKey(0)  # 等待按键
-    cv2.destroyAllWindows()  # 关闭所有窗口
 
 
 def opencv_image_01():
@@ -61,7 +49,7 @@ def opencv_image_01():
     print(f'图像通道数：{channel}')
 
     # 显示图像
-    show_image_in_window('这是我加载的图像', image)
+    image_util.show_image_in_window('这是我加载的图像', image)
 
     # 保存图像
     cv2.imwrite(output_path, image)
@@ -86,7 +74,7 @@ def opencv_image_02():
     x, y, w, h = 0, 0, 600, 600  # 裁剪区域的坐标和尺寸
     cropped = image[y:y + h, x:x + w]
     # 显示图像
-    show_image_in_window('裁剪后的图像', cropped)
+    image_util.show_image_in_window('裁剪后的图像', cropped)
 
     # 图像缩放
     scale_percent = 50  # 缩放百分比
@@ -94,7 +82,7 @@ def opencv_image_02():
     height = int(image.shape[0] * scale_percent / 100)
     resized = cv2.resize(image, (width, height))
     # 显示图像
-    show_image_in_window('缩放后的图像', resized)
+    image_util.show_image_in_window('缩放后的图像', resized)
 
     # 图像旋转
     (h, w) = image.shape[:2]
@@ -104,7 +92,7 @@ def opencv_image_02():
     M = cv2.getRotationMatrix2D(center, -45, 1.0)
     rotated = cv2.warpAffine(image, M, (w, h))
     # 显示图像
-    show_image_in_window('旋转后的图像', rotated)
+    image_util.show_image_in_window('旋转后的图像', rotated)
 
 
 def main():

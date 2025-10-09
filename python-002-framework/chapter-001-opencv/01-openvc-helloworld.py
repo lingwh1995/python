@@ -1,3 +1,5 @@
+import cv2
+
 """
     1.opencv架构与功能模块
         opencv被组织成多个模块，每个模块都关注计算机视觉的特定方面。核心模块包括：
@@ -18,6 +20,5 @@
            print(cv2.__version__)
 """
 
-import cv2
 
 print(cv2.__version__)

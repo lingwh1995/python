@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import image_util as image_util
 
 """
     颜色空间
@@ -18,19 +19,6 @@ import numpy as np
             应用场景方面，图像处理中常见的如在色彩校正和颜色空间压缩时使用YUV空间；在进行颜色分析和识别时可能会转换到HSV空间；而Lab颜色空间则由于其与设备无关的特性，
             通常用于颜色的通用比较。 
 """
-
-
-def show_image_in_window(title, image):
-    """
-        显示图像函数
-        param：
-            image：要显示的图像
-        return：
-            无
-    """
-    cv2.imshow(title, image)
-    cv2.waitKey(0)  # 等待按键
-    cv2.destroyAllWindows()  # 关闭所有窗口
 
 
 def opencv_color_space_01():
@@ -80,7 +68,7 @@ def opencv_color_space_02():
     red_objects = cv2.bitwise_and(image_bgr, image_bgr, mask=mask)
 
     # 显示图像
-    show_image_in_window('提取到的图像中的红色区域', red_objects)
+    image_util.show_image_in_window('提取到的图像中的红色区域', red_objects)
 
     # 保存图像
     cv2.imwrite(output_path, red_objects)
