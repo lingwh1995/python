@@ -12,7 +12,7 @@ import cv2
         calib3d ：用于解决3D计算机视觉问题，如单目、双目和多目摄像机的标定
 
     2.搭建opencv环境
-        pip install opencv-python
+        pip install opencv-python 或 pip install opencv-contrib-python
         # 如果需要进行图像和视频界面交互，可以安装额外的库
         # pip install opencv-python-headless
         编写测试代码

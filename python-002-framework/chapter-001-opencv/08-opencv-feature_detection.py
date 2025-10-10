@@ -28,7 +28,11 @@ def feature_detection_sift():
     """
     input_path = 'd://opencv//character_wheel.bmp'
     # 加载图像
-    image = cv2.imread(input_path, 0)
+    image = cv2.imread(input_path)
+    if image is None:
+        print('图像加载失败')
+        return
+
     # 初始化SIFT检测器
     sift = cv2.SIFT_create()
     # 检测关键点和描述符
@@ -49,6 +53,10 @@ def feature_detection_orb():
 
     # 加载图像
     image = cv2.imread(input_path, 0)
+    if image is None:
+        print('图像加载失败')
+        return
+
     # 初始化ORB检测器
     orb = cv2.ORB_create()
     # 检测关键点和描述符

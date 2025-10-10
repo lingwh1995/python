@@ -10,5 +10,5 @@ def show_image_in_window(title, image):
             无
     """
     cv2.imshow(title, image)
-    cv2.waitKey(0)  # 等待按键
+    cv2.waitKey(0)  # 等待按键（0表示无限等待）
     cv2.destroyAllWindows()  # 关闭所有窗口

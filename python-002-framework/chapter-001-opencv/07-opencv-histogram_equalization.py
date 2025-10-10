@@ -29,6 +29,9 @@ def histogram_equalization():
     input_path = 'd://opencv//character_wheel.bmp'
     # 加载图像
     image = cv2.imread(input_path)
+    if image is None:
+        print('图像加载失败')
+        return
 
     # 将图像从BGR转换到灰度
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

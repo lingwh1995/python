@@ -5,8 +5,10 @@ import image_util as image_util
     图像二值化处理
         图像二值化处理的基本概念
             图像二值化处理是将灰度图像转换为只有两个值（通常是0和255）的图像，用于突出图像中的物体或区域。
-        图像二值化处理函数：cv2.threshold()
-            参数说明：
+        图像二值化处理函数
+            函数声明    
+                cv2.threshold(src, thresh, maxval, type[, dst]) -> retval, dst
+            参数说明
                 src: 输入图像，通常为单通道灰度图像
                 thresh: 阈值
                 maxval: 最大值，当像素值超过阈值时设置的值
@@ -17,25 +19,20 @@ import image_util as image_util
                     cv2.THRESH_TOZERO: 阈值化为0
                     cv2.THRESH_TOZERO_INV: 反向阈值化为0
                     cv2.THRESH_OTSU: OTSU算法自动计算阈值
-            返回值说明：
+            返回值说明
                 retval: 计算得到的阈值（当使用OTSU等自动阈值方法时）
                 dst: 二值化后的图像
-            函数声明：        
-                cv2.threshold(src, thresh, maxval, type[, dst]) -> retval, dst
 
-    
+
     轮廓的检测
         轮廓检测的基本概念
             轮廓检测（Contour Detection）用于检测图像中的边缘或物体的轮廓。轮廓是图像中连续的、具有相同颜色或灰度值的像素点所组成的曲线。通过
             轮廓检测，可以提取出图像中的对象的形状和结构信息。
-        轮廓检测函数：cv2.findContours()
+        轮廓检测函数
             函数声明    
-                contours, hierarchy = cv2.findContours(image, mode, method, offset)
-            函数说明
-                cv2.findContours() 函数是用于查找图像中的轮廓的。它的输入参数是一个二值化图像，其中白色像素表示前景，黑色像素表示背景。
-                函数返回的是一个包含轮廓的列表，每个轮廓都是一个由点组成的边界。
+                cv2.findContours(image, mode, method, offset) -> contours, hierarchy
             参数说明：
-                image：输入的二值图像，通常为灰度图像或二值化图像。图像需要为8位无符号整型。
+                image：输入的二值图像，通常为灰度图像或二值化图像（其中白色像素表示前景，黑色像素表示背景）。图像需要为8位无符号整型。
                 mode：轮廓检索模式。有四种模式可选：
                     cv2.RETR_EXTERNAL：只检测外部的轮廓。
                     cv2.RETR_LIST：检测所有的轮廓，不建立轮廓间的层级关系。
@@ -46,15 +43,13 @@ import image_util as image_util
                     cv2.CHAIN_APPROX_SIMPLE：只保存轮廓的端点。
                     cv2.CHAIN_APPROX_TC89_L1和cv2.CHAIN_APPROX_TC89_KCOS：通过Teh-Chin链码逼近算法进行轮廓近似。
             返回值说明：
-                contours：返回的轮廓信息，是一个由多个轮廓组成的列表。
+                contours：返回的轮廓信息，每个轮廓都是一个由点组成的边界，是一个由多个轮廓组成的列表。
                 hierarchy：返回的轮廓层级信息，与轮廓列表对应。每个轮廓对应一个四元组(hierarchy[0], hierarchy[1], hierarchy[2], hierarchy[3])，分
                 别为后一个轮廓、前一个轮廓、父轮廓、子轮廓的索引。如果没有则为-1。
                 
-        轮廓的绘制函数：cv2.drawContours()
+        轮廓的绘制函数
             函数声明
-                image = cv2.drawContours(image, contours, contourIdx, color, thickness)  
-            函数说明
-                cv2.drawContours()函数是OpenCV中用于绘制轮廓的函数。
+                cv2.drawContours(image, contours, contourIdx, color, thickness) -> dst
             参数说明：
                 image：输入的图像，可以是灰度图像或彩色图像。
                 contours：轮廓信息，可以是通过cv2.findContours()函数得到的轮廓列表。
@@ -62,7 +57,7 @@ import image_util as image_util
                 color：绘制轮廓的颜色，可以是指定的颜色（例如(0,255,0)表示绿色）或者是使用-1用于绘制填充轮廓。
                 thickness：轮廓线的宽度。如果为负数（例如-1），则绘制填充轮廓。默认值为1。
             返回值说明：
-                image：返回的绘制轮廓后的图像。
+                dst：返回的绘制轮廓后的图像。
 """
 
 
@@ -121,7 +116,7 @@ def contour_detection(conditions):
     # image_util.show_image_in_window("灰度处理后的图片", image_gray)
 
     # 3.二值化处理，用于将灰度图像转换为二值图像
-    retval, image_binary = cv2.threshold(image_gray, 0, 255,  cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    retval, image_binary = cv2.threshold(image_gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     # image_util.show_image_in_window("二值化处理后的图片", image_binary)
 
     # 4.进行形态学操作，改善图像质量
@@ -129,11 +124,11 @@ def contour_detection(conditions):
     # 先进行开运算去除噪声点
     image_morph = cv2.morphologyEx(image_binary, cv2.MORPH_OPEN, kernel, iterations=1)
     # 再进行闭运算连接断裂的轮廓
-    image_morph = cv2.morphologyEx(image_morph, cv2.MORPH_CLOSE, kernel, iterations=1)
+    # image_morph = cv2.morphologyEx(image_morph, cv2.MORPH_CLOSE, kernel, iterations=1)
     image_util.show_image_in_window("形态学处理后的图片", image_morph)
 
     # 5. 边缘检测（轮廓查找）
-    contours, hierarchy = cv2.findContours(image_binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv2.findContours(image_morph, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     # 6.过滤数字轮廓
     number_contours_with_rect = filter_number_contours(contours, conditions)

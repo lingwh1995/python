@@ -1,4 +1,5 @@
 import cv2
+
 import image_util as image_util
 
 """
@@ -25,37 +26,7 @@ import image_util as image_util
 """
 
 
-def opencv_image_01():
-    """
-        使用opencv加载、显示、保存图像
-
-        opencv 常用库函数第一部分
-
-        cv2.imread() 用于加载图像
-        cv2.imshow() 用于在窗口中显示图像
-        cv2.waitKey() 用于等待用户输入，参数是毫秒，0表示无限等待
-        cv2.destroyAllWindows() 用于关闭所有OpenCV创建的窗口
-    """
-    input_path = 'd://opencv//national_day.jpg'
-    output_path = 'd://opencv//national_day_new.jpg'
-    # 加载图像
-    image = cv2.imread(input_path)
-
-    height = image.shape[0]  # 图像原始高度
-    width = image.shape[1]  # 图像原始宽度
-    channel = image.shape[2]  # 图像原始通道数（BGR）
-    print(f'图像高度：{height}')
-    print(f'图像宽度：{width}')
-    print(f'图像通道数：{channel}')
-
-    # 显示图像
-    image_util.show_image_in_window('这是我加载的图像', image)
-
-    # 保存图像
-    cv2.imwrite(output_path, image)
-
-
-def opencv_image_02():
+def opencv_image_operation():
     """
         使用opencv加载、裁剪、缩放、旋转图像
 
@@ -67,8 +38,13 @@ def opencv_image_02():
         cv2.warpAffine() 函数应用仿射变换，用于旋转图像。
     """
     input_path = 'd://opencv//national_day.jpg'
-    # 加载图像
+    output_path = 'd://opencv//national_day_new.jpg'
+
+    # 加载图像，返回一个 NumPy 数组
     image = cv2.imread(input_path)
+    if image is None:
+        print('图像加载失败')
+        return
 
     # 图像裁剪
     x, y, w, h = 0, 0, 600, 600  # 裁剪区域的坐标和尺寸
@@ -80,7 +56,10 @@ def opencv_image_02():
     scale_percent = 50  # 缩放百分比
     width = int(image.shape[1] * scale_percent / 100)
     height = int(image.shape[0] * scale_percent / 100)
+    # 缩放至指定尺寸
     resized = cv2.resize(image, (width, height))
+    # 按比例缩放 (例如缩小一半)
+    # resized = cv2.resize(img, None, fx=0.5, fy=0.5)
     # 显示图像
     image_util.show_image_in_window('缩放后的图像', resized)
 
@@ -89,16 +68,14 @@ def opencv_image_02():
     # // 取整除法(地板除)
     center = (w // 2, h // 2)
     # 顺时针旋转45度，第二个参数-45，逆时针旋转45度，第二个参数45
-    M = cv2.getRotationMatrix2D(center, -45, 1.0)
-    rotated = cv2.warpAffine(image, M, (w, h))
+    M = cv2.getRotationMatrix2D(center, -45, 1.0)   # 获取旋转矩阵
+    rotated = cv2.warpAffine(image, M, (w, h))  # 执行仿射变换
     # 显示图像
     image_util.show_image_in_window('旋转后的图像', rotated)
 
-
-def main():
-    # opencv_image_01()
-    opencv_image_02()
+    # 保存图像
+    # cv2.imwrite(output_path, image)
 
 
 if __name__ == "__main__":
-    main()
+    opencv_image_operation()
