@@ -104,30 +104,41 @@ def contour_detection(conditions):
     """
     input_path = 'd://opencv//character_wheel-2.bmp'
 
-    # 加载图像
+    # 加载图像并检查是否成功
     image = cv2.imread(input_path)
+    if image is None:
+        print(f"错误：无法加载图像 '{input_path}'")
+        return
     # 创建原始图像的彩色副本用于显示
     original_image = image.copy()
 
     # 1.中值滤波去噪
-    image = cv2.medianBlur(image, 3)
-    # image_util.show_image_in_window("中值滤波后的图片", image)
+    image_median = cv2.medianBlur(image, 3)
+    # image_util.show_image_in_window("中值滤波后的图片", image_median)
 
     # 2.将图像转换为灰度图
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    # image_util.show_image_in_window("灰度处理后的图片", image)
+    image_gray = cv2.cvtColor(image_median, cv2.COLOR_BGR2GRAY)
+    # image_util.show_image_in_window("灰度处理后的图片", image_gray)
 
     # 3.二值化处理，用于将灰度图像转换为二值图像
-    retval, image = cv2.threshold(image, 0, 255,  cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    # image_util.show_image_in_window("二值化处理后的图片", image)
+    retval, image_binary = cv2.threshold(image_gray, 0, 255,  cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    # image_util.show_image_in_window("二值化处理后的图片", image_binary)
 
-    # 4. 边缘检测（轮廓查找）
-    contours, hierarchy = cv2.findContours(image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    # 4.进行形态学操作，改善图像质量
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+    # 先进行开运算去除噪声点
+    image_morph = cv2.morphologyEx(image_binary, cv2.MORPH_OPEN, kernel, iterations=1)
+    # 再进行闭运算连接断裂的轮廓
+    image_morph = cv2.morphologyEx(image_morph, cv2.MORPH_CLOSE, kernel, iterations=1)
+    image_util.show_image_in_window("形态学处理后的图片", image_morph)
 
-    # 5.过滤数字轮廓
+    # 5. 边缘检测（轮廓查找）
+    contours, hierarchy = cv2.findContours(image_binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    # 6.过滤数字轮廓
     number_contours_with_rect = filter_number_contours(contours, conditions)
 
-    # 6.绘制过滤后的数字轮廓
+    # 7.绘制过滤后的数字轮廓
     number_contours_image = original_image.copy()
     for contour, rect in number_contours_with_rect:
         x, y, w, h = rect
@@ -136,7 +147,7 @@ def contour_detection(conditions):
         # 绘制边界矩形
         cv2.rectangle(number_contours_image, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
-    # 7.绘制所有轮廓
+    # 8.绘制所有轮廓
     all_contours_image = original_image.copy()
     cv2.drawContours(all_contours_image, contours, -1, (0, 255, 0), 2)
 
