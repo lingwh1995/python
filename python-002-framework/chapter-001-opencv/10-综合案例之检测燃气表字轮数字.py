@@ -1,4 +1,6 @@
 import cv2
+import numpy as np
+
 import image_util as image_util
 
 """
@@ -93,11 +95,11 @@ def filter_number_contours(contours, conditions):
     return number_contours
 
 
-def contour_detection(conditions):
+def contour_detection(conditions, i):
     """
         轮廓检测
     """
-    input_path = 'd://opencv//character_wheel-2.bmp'
+    input_path = 'd://opencv//character_wheel-' + str(i) + '.bmp'
 
     # 加载图像并检查是否成功
     image = cv2.imread(input_path)
@@ -108,27 +110,27 @@ def contour_detection(conditions):
     original_image = image.copy()
 
     # 1.中值滤波去噪
-    image_median = cv2.medianBlur(image, 3)
-    # image_util.show_image_in_window("中值滤波后的图片", image_median)
+    image = cv2.medianBlur(image, 3)
+    # image_util.show_image_in_window("中值滤波后的图片", image)
 
     # 2.将图像转换为灰度图
-    image_gray = cv2.cvtColor(image_median, cv2.COLOR_BGR2GRAY)
-    # image_util.show_image_in_window("灰度处理后的图片", image_gray)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    # image_util.show_image_in_window("灰度处理后的图片", image)
 
     # 3.二值化处理，用于将灰度图像转换为二值图像
-    retval, image_binary = cv2.threshold(image_gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    # image_util.show_image_in_window("二值化处理后的图片", image_binary)
+    retval, image = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    # image_util.show_image_in_window("二值化处理后的图片", image)
 
     # 4.进行形态学操作，改善图像质量
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
-    # 先进行开运算去除噪声点
-    image_morph = cv2.morphologyEx(image_binary, cv2.MORPH_OPEN, kernel, iterations=1)
-    # 再进行闭运算连接断裂的轮廓
-    # image_morph = cv2.morphologyEx(image_morph, cv2.MORPH_CLOSE, kernel, iterations=1)
-    image_util.show_image_in_window("形态学处理后的图片", image_morph)
+    # 先进行闭运算连接断裂的轮廓
+    # image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel, iterations=1)
+    # 再进行开运算去除噪声点
+    # image = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel, iterations=1)
+    # image_util.show_image_in_window("形态学处理后的图片", image)
 
     # 5. 边缘检测（轮廓查找）
-    contours, hierarchy = cv2.findContours(image_morph, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv2.findContours(image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     # 6.过滤数字轮廓
     number_contours_with_rect = filter_number_contours(contours, conditions)
@@ -161,4 +163,5 @@ def contour_detection(conditions):
 if __name__ == '__main__':
     conditions = {'min_area': 50, 'max_area': 800, 'min_width': 5, 'max_width': 32, 'min_height': 18.0,
                   'max_height': 40}
-    contour_detection(conditions)
+    for i in range(1, 9):
+        contour_detection(conditions, i)
