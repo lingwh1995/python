@@ -1,6 +1,8 @@
 import cv2
 import matplotlib.pyplot as plt
 
+import image_util as image_util
+
 
 def feature_detection_orb():
     """
@@ -21,9 +23,13 @@ def feature_detection_orb():
 
     # 绘制关键点
     img_key_points = cv2.drawKeypoints(image, key_points, None)
+
     # 显示图像
-    plt.imshow(img_key_points)
+    image_util.show_image_in_window('ORB特征检测', img_key_points)
     plt.show()
+
+    # 保存图像
+    # cv2.imwrite(output_path, img_key_points)
 
 
 if __name__ == '__main__':

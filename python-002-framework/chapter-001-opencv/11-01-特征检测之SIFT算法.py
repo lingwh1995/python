@@ -1,5 +1,7 @@
 import cv2
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
+
+import image_util as image_util
 
 """
     特征检测
@@ -27,6 +29,8 @@ def opencv_feature_detection_operation():
         特征检测算法-sift
     """
     input_path = 'd://opencv//character_wheel.bmp'
+    output_path = 'd://opencv//character_wheel_new.jpg'
+
     # 加载图像
     image = cv2.imread(input_path)
     if image is None:
@@ -40,9 +44,13 @@ def opencv_feature_detection_operation():
 
     # 绘制关键点
     img_key_points = cv2.drawKeypoints(image, key_points, None)
+
     # 显示图像
-    plt.imshow(img_key_points)
+    image_util.show_image_in_window('SIFT特征检测', img_key_points)
     plt.show()
+
+    # 保存图像
+    # cv2.imwrite(output_path, img_key_points)
 
 
 if __name__ == '__main__':
