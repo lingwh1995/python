@@ -19,6 +19,7 @@ import image_util as image_util
 # 缩放比例
 scale = 1
 
+
 def filter_number_contours(contours, conditions):
     """
         过滤出可能是数字的轮廓
@@ -119,4 +120,3 @@ if __name__ == '__main__':
     conditions = {'min_area': 50, 'max_area': 800, 'min_width': 5, 'max_width': 32, 'min_height': 18.0,
                   'max_height': 40}
     contour_detection(conditions)
-

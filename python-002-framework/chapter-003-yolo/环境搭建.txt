@@ -1,0 +1,10 @@
+# 安装YOLOv11官方库（Ultralytics）
+pip install ultralytics
+
+# 验证安装
+python -c "from ultralytics import YOLO; print('YOLOv11 installed successfully')"
+
+# 安装LabelImg
+pip install labelImg
+
+pip install matplotlib pandas
