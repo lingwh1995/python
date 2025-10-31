@@ -75,6 +75,8 @@ def convert_single_xml_to_yolo(xml_file_path, class_mapping):
                 angle_elem = robndbox.find('angle')
                 if angle_elem is not None:
                     angle_degrees = float(angle_elem.text)
+                    # 确保角度在合理范围内
+                    angle_degrees = angle_degrees % 360  # 保持在0-360范围内
                     # 转换为弧度
                     angle = math.radians(angle_degrees)
                 else:
