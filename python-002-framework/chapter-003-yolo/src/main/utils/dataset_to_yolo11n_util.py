@@ -131,7 +131,7 @@ def batch_convert_xml_to_yolo(xml_folder, output_folder, class_mapping):
 if __name__ == "__main__":
     # 定义类别映射 (根据实际需求修改)
     class_mapping = {
-        'character_wheel': 0
+        'dial': 0
     }
 
     # 设置输入和输出文件夹路径

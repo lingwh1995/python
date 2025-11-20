@@ -1,0 +1,12 @@
+train: e:/images/water_meter/wheel/dataset_split/train/images  # train images (relative to 'path') 128 images
+val: e:/images/water_meter/wheel/dataset_split/val/images  # val images (relative to 'path') 128 images
+test: e:/images/water_meter/wheel/dataset_split/test/images
+
+# 表示有几个类别
+nc: 11
+
+# Classes
+names: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'X']
+
+# 明确指定任务类型为 OBB
+#task: obb

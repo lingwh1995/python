@@ -9,7 +9,7 @@ def opencv_threshold_operation():
             阈值处理将图像转换为二值图像，用于分割。
     """
     input_path = 'd://opencv//character_wheel.bmp'
-    output_path = 'd://opencv//character_wheel.bmp_new.jpg'
+    output_path = 'd://opencv//dial.bmp_new.jpg'
 
     # 加载图像
     image = cv2.imread(input_path)

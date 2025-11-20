@@ -62,10 +62,7 @@ def split_data(file_path, label_path, new_file_path, train_rate, val_rate, test_
 
 
 if __name__ == '__main__':
-    # file_path = r"e:\images\safety_helmet\images"  # 图片文件夹
-    # label_path = r'e:\images\safety_helmet\labels'  # 标签文件夹
-    # new_file_path = r"e:\images\safet_helmet\dataset_split"  # 新数据存放位置
-    file_path = r"e:\images\water_meter\images"  # 图片文件夹
-    label_path = r'E:\images\water_meter\labels'  # 标签文件夹
-    new_file_path = r"e:\images\water_meter\dataset_split"  # 新数据存放位置
+    file_path = r"e:\images\water_meter\wheel\images"  # 图片文件夹
+    label_path = r'e:\images\water_meter\wheel\annotations'  # 标签文件夹
+    new_file_path = r"e:\images\water_meter\wheel\dataset_split"  # 新数据存放位置
     split_data(file_path, label_path, new_file_path, train_rate=0.8, val_rate=0.1, test_rate=0.1)
