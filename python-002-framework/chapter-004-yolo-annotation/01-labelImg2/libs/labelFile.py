@@ -75,14 +75,14 @@ class LabelFile(object):
     def load(self, filename):
         import json
         with open(filename, 'rb') as f:
-                data = json.load(f)
-                imagePath = data['imagePath']
-                imageData = b64decode(data['imageData'])
-                lineColor = data['lineColor']
-                fillColor = data['fillColor']
+                dataset = json.load(f)
+                imagePath = dataset['imagePath']
+                imageData = b64decode(dataset['imageData'])
+                lineColor = dataset['lineColor']
+                fillColor = dataset['fillColor']
                 shapes = ((s['label'], s['points'], s['line_color'], s['fill_color'])\
-                        for s in data['shapes'])
-                # Only replace data after everything is loaded.
+                        for s in dataset['shapes'])
+                # Only replace dataset after everything is loaded.
                 self.shapes = shapes
                 self.imagePath = imagePath
                 self.imageData = imageData

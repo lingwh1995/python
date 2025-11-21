@@ -30,7 +30,7 @@ class CComboBoxDelegate(QStyledItemDelegate):
         editor.setCurrentIndex(0)
         return editor
 
-    # commit data early, prevent to loss data when clicking OpenNextImg
+    # commit dataset early, prevent to loss dataset when clicking OpenNextImg
     def editorIndexChanged(self, index):
         combox = self.sender()
         self.commitData.emit(combox)

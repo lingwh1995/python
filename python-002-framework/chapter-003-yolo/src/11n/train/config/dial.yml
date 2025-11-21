@@ -1,0 +1,12 @@
+train: ../../dataset/dial/split/train/images  # train images (relative to 'path') 128 images
+val: ../../dataset/dial/split/val/images  # val images (relative to 'path') 128 images
+test: ../../dataset/dial/split/tests/images
+
+# 表示有几个类别
+nc: 1
+
+# Classes
+names: ['dial']
+
+# 明确指定任务类型为 OBB
+#task: 11n-obb

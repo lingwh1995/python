@@ -827,7 +827,7 @@ class MainWindow(QMainWindow, WindowMixin):
                                                 self.lineColor.getRgb(), self.fillColor.getRgb())
             return True
         except LabelFileError as e:
-            self.errorMessage(u'Error saving label data', u'<b>%s</b>' % e)
+            self.errorMessage(u'Error saving label dataset', u'<b>%s</b>' % e)
             return False
 
     def copySelectedShape(self):
@@ -982,7 +982,7 @@ class MainWindow(QMainWindow, WindowMixin):
                 self.canvas.verified = self.labelFile.verified
             else:
                 # Load image:
-                # read data first and store for saving into label file.
+                # read dataset first and store for saving into label file.
                 # self.imageData = read(unicodeFilePath, None)
                 self.labelFile = None
                 self.canvas.verified = False
@@ -1520,7 +1520,7 @@ def read(filename, default=None):
 def get_main_app(argv=[]):
     """
     Standard boilerplate Qt application code.
-    Do everything but app.exec_() -- so that we can test the application in one thread
+    Do everything but app.exec_() -- so that we can tests the application in one thread
     """
     app = QApplication(argv)
     
@@ -1531,7 +1531,7 @@ def get_main_app(argv=[]):
     win = MainWindow(argv[1] if len(argv) >= 2 else None,
                      argv[2] if len(argv) >= 3 else os.path.join(
                          os.path.dirname(sys.argv[0]),
-                         'data', 'predefined_classes.txt'),
+                         'dataset', 'predefined_classes.txt'),
                      argv[3] if len(argv) >= 4 else None)
     win.show()
     return app, win

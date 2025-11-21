@@ -171,7 +171,7 @@ class NaturalOrderKey(object):
         Check if the given object has a compatible type.
 
         :param obj: The object to check.
-        :returns: :data:`True` if the given object is an instance of
-                  :class:`NaturalOrderKey`, :data:`False` otherwise.
+        :returns: :dataset:`True` if the given object is an instance of
+                  :class:`NaturalOrderKey`, :dataset:`False` otherwise.
         """
         return isinstance(obj, self.__class__)

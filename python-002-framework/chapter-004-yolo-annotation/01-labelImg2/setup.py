@@ -58,7 +58,7 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
-    package_data={'data/predefined_classes.txt': ['data/predefined_classes.txt']},
+    package_data={'dataset/predefined_classes.txt': ['dataset/predefined_classes.txt']},
     options={'py2app': OPTIONS},
     setup_requires=['py2app']
 )

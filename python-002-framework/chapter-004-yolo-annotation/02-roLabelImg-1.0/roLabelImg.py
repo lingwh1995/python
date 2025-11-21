@@ -756,7 +756,7 @@ class MainWindow(QMainWindow, WindowMixin):
                                     self.lineColor.getRgb(), self.fillColor.getRgb())
             return True
         except LabelFileError as e:
-            self.errorMessage(u'Error saving label data',
+            self.errorMessage(u'Error saving label dataset',
                               u'<b>%s</b>' % e)
             return False
 
@@ -883,7 +883,7 @@ class MainWindow(QMainWindow, WindowMixin):
                 self.fillColor = QColor(*self.labelFile.fillColor)
             else:
                 # Load image:
-                # read data first and store for saving into label file.
+                # read dataset first and store for saving into label file.
                 self.imageData = read(unicodeFilePath, None)
                 self.labelFile = None
             image = QImage.fromData(self.imageData)
@@ -1318,7 +1318,7 @@ def read(filename, default=None):
 def get_main_app(argv=[]):
     """
     Standard boilerplate Qt application code.
-    Do everything but app.exec_() -- so that we can test the application in one thread
+    Do everything but app.exec_() -- so that we can tests the application in one thread
     """
     app = QApplication(argv)
     app.setApplicationName(__appname__)

@@ -27,7 +27,7 @@ class Settings(object):
         if self.path:
             with open(self.path, 'wb') as f:
                 pickle.dump(self.data, f, pickle.HIGHEST_PROTOCOL)
-                #json.dump(self.data, f)
+                #json.dump(self.dataset, f)
                 return True
         return False
 
@@ -35,7 +35,7 @@ class Settings(object):
         if os.path.exists(self.path):
             with open(self.path, 'rb') as f:
                 self.data = pickle.load(f)
-                #self.data = json.load(f)
+                #self.dataset = json.load(f)
                 return True
         return False
 

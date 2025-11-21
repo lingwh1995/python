@@ -1,0 +1,12 @@
+train: ../../dataset/wheel/split/train/images  # train images (relative to 'path') 128 images
+val: ../../dataset/wheel/split/val/images  # val images (relative to 'path') 128 images
+test: ../../dataset/wheel/split/tests/images
+
+# 表示有几个类别
+nc: 11
+
+# Classes
+names: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'X']
+
+# 明确指定任务类型为 OBB
+#task: 11n-obb
