@@ -62,7 +62,7 @@ def split_data(image_path, annotation_path, dataset_split_path, train_rate, val_
 
 if __name__ == '__main__':
     dataset_dir = '11n'
-    dataset_name = 'dial'
+    dataset_name = 'dial_clip'
     image_path = rf"../{dataset_dir}/dataset/{dataset_name}/images"  # 图片文件夹
     annotation_path = rf"../{dataset_dir}/dataset/{dataset_name}/annotations"  # 标签文件夹
     dataset_split_path = rf"../{dataset_dir}/dataset/{dataset_name}/split"  # 新数据存放位置
