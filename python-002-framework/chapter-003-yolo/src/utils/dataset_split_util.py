@@ -66,4 +66,4 @@ if __name__ == '__main__':
     image_path = rf"../{dataset_dir}/dataset/{dataset_name}/images"  # 图片文件夹
     annotation_path = rf"../{dataset_dir}/dataset/{dataset_name}/annotations"  # 标签文件夹
     dataset_split_path = rf"../{dataset_dir}/dataset/{dataset_name}/split"  # 新数据存放位置
-    split_data(image_path, annotation_path, dataset_split_path, train_rate=0.8, val_rate=0.1)
+    split_data(image_path, annotation_path, dataset_split_path, train_rate=0.9, val_rate=0.05)

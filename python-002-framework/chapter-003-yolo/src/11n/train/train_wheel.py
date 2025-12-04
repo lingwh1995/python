@@ -1,4 +1,3 @@
-import datetime
 import warnings
 import os
 import shutil
@@ -8,7 +7,7 @@ from ultralytics import YOLO
 
 if __name__ == '__main__':
     """
-        训练表盘区域识别模型
+        训练表盘字轮识别模型
     """
     # 定义训练结果目录路径
     train_dir = './runs/'
@@ -28,6 +27,7 @@ if __name__ == '__main__':
         epochs=100,  # 训练轮数（新手建议20-50，数据多可增加）
         batch=16,  # 批量大小，即单次输入多少图片训练（GPU内存大则设大）
         imgsz=320,  # 训练图像尺寸
+        patience=15,  # 设置早停耐心轮数为15
         workers=8,  # 加载数据的工作线程数
         device='cpu',  # 指定训练的计算设备，无nvidia显卡则改为 'cpu'（0=GPU，-1=CPU）
         optimizer='AdamW',  # 训练使用优化器，可选 auto,SGD,Adam,AdamW 等

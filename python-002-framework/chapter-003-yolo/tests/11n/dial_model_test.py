@@ -7,7 +7,7 @@ import os
 """
 try:
     # 加载YOLOv11预训练模型
-    model = YOLO("model/dial.pt")
+    model = YOLO("../../model/dial.pt")
 
     # 检查图片文件是否存在
     image_path = "dataset/dial/002.jpeg"
