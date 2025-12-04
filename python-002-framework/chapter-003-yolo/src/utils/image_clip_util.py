@@ -62,8 +62,8 @@ class ImageClipUtil:
                     # 裁剪区域
                     clipped_region = image[y1:y2, x1:x2]
 
-                    # 生成输出文件名: 原文件名 + _clip + 序号 + 扩展名
-                    output_filename = f"{filename_without_ext}_clip{i}{ext}"
+                    # 生成输出文件名: 原文件名 + _clip + 扩展名
+                    output_filename = f"{filename_without_ext}_clip{ext}"
                     output_path = os.path.join(output_dir, output_filename)
 
                     # 保存裁剪图像
