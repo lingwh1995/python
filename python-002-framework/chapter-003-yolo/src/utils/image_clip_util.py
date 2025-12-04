@@ -1,11 +1,10 @@
-# image_clip_util.py
 import os
 import cv2
 from ultralytics import YOLO
 
 
 class ImageClipUtil:
-    """图像裁剪工具类，用于裁剪YOLO模型识别到的区域"""
+    """图像裁剪工具类，用于批量裁剪YOLO模型识别到的表盘区域"""
 
     def __init__(self, model_path):
         """
@@ -130,7 +129,7 @@ def main():
 
         # 批量裁剪识别区域
         input_dir = "../11n/dataset/dial/images"
-        output_dir = "../11n/dataset/dial/images_clip"
+        output_dir = "../11n/dataset/dial_clip/images"
         clipper.clip_directory_images(input_dir, output_dir)
 
     except Exception as e:
