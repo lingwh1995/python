@@ -255,7 +255,7 @@ class MainWindow(QMainWindow, WindowMixin):
                          None, None, u'Label as background sample for detection training')
         
         deleteLabel = action('No Label', self.deleteLabel,
-                              None, None, u'Delete all annotations for current image.S')
+                              None, None, u'Delete all labels for current image.S')
 
         copy = action('&Duplicate\nRectBox', self.copySelectedShape,
                       'Ctrl+D', 'copy.svg', u'Create a duplicate of the selected Box',
@@ -1133,7 +1133,7 @@ class MainWindow(QMainWindow, WindowMixin):
             path = ''
 
         dirpath = QFileDialog.getExistingDirectory(self,
-                                                       '%s - Save annotations to the directory' % __appname__, path,  QFileDialog.ShowDirsOnly
+                                                       '%s - Save labels to the directory' % __appname__, path,  QFileDialog.ShowDirsOnly
                                                        | QFileDialog.DontResolveSymlinks)
 
         if dirpath is not None and len(dirpath) > 1:
