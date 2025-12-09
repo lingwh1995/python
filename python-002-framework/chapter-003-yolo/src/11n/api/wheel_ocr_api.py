@@ -202,9 +202,9 @@ def recognize_api_v1():
         image_url = data.get('uri')
 
         # 获取可选参数
-        confidence_threshold = data.get('confidence_threshold', 0.2)
-        max_detections = data.get('max_detections', 5)
-        iou_threshold = data.get('iou_threshold', 0.4)
+        confidence_threshold = float(data.get('confidence_threshold', 0.2))
+        max_detections = int(data.get('max_detections', 5))
+        iou_threshold = float(data.get('iou_threshold', 0.4))
 
         if not image_url:
             return jsonify({
@@ -240,9 +240,9 @@ def recognize_api_v2():
         image_url = data.get('uri')
 
         # 获取可选参数
-        confidence_threshold = data.get('confidence_threshold', 0.2)
-        max_detections = data.get('max_detections', 5)
-        iou_threshold = data.get('iou_threshold', 0.4)
+        confidence_threshold = float(data.get('confidence_threshold', 0.2))
+        max_detections = int(data.get('max_detections', 5))
+        iou_threshold = float(data.get('iou_threshold', 0.4))
 
         if not image_url:
             return jsonify({
