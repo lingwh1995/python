@@ -26,11 +26,10 @@ if __name__ == '__main__':
     results = model.train(
         data='./config/dial.yml',  # 数据集配置文件的路径
         epochs=100,  # 训练轮数（新手建议20-50，数据多可增加）
-        batch=64,  # 批量大小，即单次输入多少图片训练（GPU内存大则设大）
-        imgsz=640,  # 训练图像尺寸
-        workers=32,  # 加载数据的工作线程数
-        patience=15,
-        device=0,  # 指定训练的计算设备，无nvidia显卡则改为 'cpu'（0=GPU，-1=CPU）
+        batch=16,  # 批量大小，即单次输入多少图片训练（GPU内存大则设大）
+        imgsz=320,  # 训练图像尺寸
+        workers=8,  # 加载数据的工作线程数
+        device='cpu',  # 指定训练的计算设备，无nvidia显卡则改为 'cpu'（0=GPU，-1=CPU）
         optimizer='AdamW',  # 训练使用优化器，可选 auto,SGD,Adam,AdamW 等
         amp=True,  # True 或者 False, 解释为：自动混合精度(AMP) 训练
         cache=False,  # True 在内存中缓存数据集图像，服务器推荐开启
